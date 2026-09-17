@@ -1,3 +1,6 @@
+import sgstImage from './assets/sgst.jpg';
+import dematiqImage from './assets/dematiq.jpg';
+
 export const PROFILE = {
   name: 'Ricardo Medina',
   fullName: 'Ricardo Medina Hernández',
@@ -47,7 +50,7 @@ export const PROJECTS = [
       'Autenticación de usuarios y panel completo para propietarios',
     ],
     tech: ['React', 'Node.js', 'MongoDB', 'Bootstrap', 'JWT'],
-    image: 'https://st3.idealista.com/news/archivos/styles/fullwidth_xl/public/news/image/2022/10/001_results_0.jpg?VersionId=z9Xc0lNUDm.1zJuU1p6T3zbekndC5gn.&itok=XMBn4z2C',
+    image: sgstImage,
     href: 'https://mexicans-code.github.io/SGST/app',
     label: 'Explorar SGST',
   },
@@ -64,7 +67,7 @@ export const PROJECTS = [
       'Pagos en línea integrados con pasarela Mercado Pago',
     ],
     tech: ['React', 'Node.js', 'Supabase', 'Mercado Pago'],
-    image: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=100&w=1300&auto=format&fit=crop',
+    image: dematiqImage,
     href: 'https://tienda.dematiq.com.mx/',
     label: 'Visitar tienda',
   },
