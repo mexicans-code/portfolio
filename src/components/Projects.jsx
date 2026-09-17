@@ -17,9 +17,7 @@ function ProjectCard({ project, small = false }) {
         <h3 className="projects__title">
           {project.name} <span className="em">·</span>
         </h3>
-        <p className="projects__sub" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.76rem', color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          {project.role}
-        </p>
+        <p className="projects__sub">{project.role}</p>
         <p className="projects__desc">{project.description}</p>
 
         <ul className="projects__features">

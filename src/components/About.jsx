@@ -32,7 +32,7 @@ export default function About() {
                 </p>
                 <p>
                   Hoy me enfoco en crear soluciones {` `}
-                  <strong style={{ color: 'var(--accent)', fontWeight: 600 }}>end-to-end con React, Node.js y bases de datos modernas</strong>
+                  <strong>end-to-end con React, Node.js y bases de datos modernas</strong>
                   , con especial gusto por los detalles de diseño que hacen que un producto se sienta profesional.
                 </p>
               </div>

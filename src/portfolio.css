@@ -1,34 +1,34 @@
 /* ============================================================
    Portafolio — Ricardo Medina
-   Sistema de diseño "humano": paleta 60-30-10, tintada,
-   display serif, espacios generosos, micro-interacciones.
+   Sistema de diseño sobrio: base neutra (negro/blanco/gris),
+   azul como apoyo y naranja solo en detalles clave.
+   Sin degradados.
    ============================================================ */
 
 :root {
-  --bg: #08100c;
-  --bg-soft: #0c1712;
-  --surface: #101f17;
-  --surface-2: #13261c;
-  --surface-3: #17301f;
+  --bg: #0a0a0b;
+  --bg-soft: #101013;
+  --surface: #151518;
+  --surface-2: #1a1a1f;
+  --surface-3: #212128;
 
-  --text: #e9f2ec;
-  --muted: #a9bfb1;
-  --dim: #7d9488;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --dim: #71717a;
 
-  --accent: #34d399;
-  --accent-2: #8fb34a;
-  --accent-blue: #38bdf8;
+  --accent: #f97316;      /* naranja — uso escaso */
+  --accent-2: #3b82f6;    /* azul — apoyo */
+  --accent-blue: #3b82f6;
 
-  --border: rgba(143, 179, 74, 0.16);
-  --border-strong: rgba(143, 179, 74, 0.3);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Google Sans Code', 'JetBrains Mono', ui-monospace, monospace;
 
-  --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.15);
-  --shadow-2: 0 30px 70px -20px rgba(0, 0, 0, 0.55);
-  --glow: 0 0 0 1px rgba(52, 211, 153, 0.2), 0 26px 70px -24px rgba(52, 211, 153, 0.4);
+  --shadow-1: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 30px 70px -20px rgba(0, 0, 0, 0.75);
 
   --r-lg: 28px;
   --r-md: 18px;
@@ -78,7 +78,7 @@ button {
 }
 
 ::selection {
-  background: rgba(52, 211, 153, 0.28);
+  background: rgba(59, 130, 246, 0.3);
   color: var(--text);
 }
 
@@ -96,7 +96,9 @@ button {
 }
 
 .section--soft {
-  background: linear-gradient(180deg, transparent, rgba(23, 48, 31, 0.25) 30%, rgba(23, 48, 31, 0.25) 70%, transparent);
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
@@ -146,14 +148,14 @@ button {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 .eyebrow::before {
   content: '';
   width: 34px;
   height: 1px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  background: var(--border-strong);
 }
 
 .section-head {
@@ -183,7 +185,7 @@ button {
   font-weight: 500;
   letter-spacing: 0.05em;
   transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease),
-    background var(--speed) var(--ease), border-color var(--speed) var(--ease);
+    background var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
   white-space: nowrap;
 }
 
@@ -198,28 +200,27 @@ button {
 }
 
 .btn--primary {
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  color: #052017;
+  background: var(--accent);
+  color: #0a0a0b;
   font-weight: 600;
-  box-shadow: 0 14px 34px -14px rgba(52, 211, 153, 0.55);
+  box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.7);
 }
 
 .btn--primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 44px -14px rgba(52, 211, 153, 0.7);
+  box-shadow: 0 16px 34px -16px rgba(0, 0, 0, 0.85);
 }
 
 .btn--ghost {
   border: 1px solid var(--border-strong);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(6px);
+  background: transparent;
 }
 
 .btn--ghost:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--text);
+  color: var(--text);
   box-shadow: var(--shadow-2);
 }
 
@@ -237,7 +238,7 @@ button {
   padding: 6px 14px;
   border-radius: var(--r-pill);
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
@@ -249,8 +250,7 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  background: var(--accent-2);
 }
 
 .chip--plain::before {
@@ -262,7 +262,7 @@ button {
 .card {
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface);
   box-shadow: var(--shadow-1);
   transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease),
     border-color var(--speed) var(--ease);
@@ -289,7 +289,7 @@ button {
 }
 
 .nav--scrolled {
-  background: rgba(8, 16, 12, 0.82);
+  background: rgba(10, 10, 11, 0.85);
   backdrop-filter: blur(16px);
   border-color: var(--border);
 }
@@ -322,14 +322,13 @@ button {
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: linear-gradient(140deg, var(--surface-3), var(--surface));
+  background: var(--surface-2);
   border: 1px solid var(--border-strong);
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
   color: var(--accent);
   font-size: 0.95rem;
-  box-shadow: var(--shadow-1);
 }
 
 .nav__links {
@@ -351,7 +350,7 @@ button {
 
 .nav__link:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .nav__status {
@@ -362,11 +361,11 @@ button {
   margin-left: 14px;
   border-radius: var(--r-pill);
   border: 1px solid var(--border-strong);
-  background: rgba(52, 211, 153, 0.08);
+  background: rgba(255, 255, 255, 0.03);
   font-family: var(--font-mono);
   font-size: 0.74rem;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .nav__status::before {
@@ -374,20 +373,19 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  background: var(--accent-2);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
   }
   60% {
-    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
   }
 }
 
@@ -396,7 +394,7 @@ button {
   bottom: -1px;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   transition: width 0.15s linear;
 }
 
@@ -415,7 +413,7 @@ button {
   position: fixed;
   inset: 0;
   z-index: 105;
-  background: rgba(8, 16, 12, 0.6);
+  background: rgba(10, 10, 11, 0.7);
   backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
@@ -442,7 +440,7 @@ button {
 }
 
 .nav__drawer a:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 @media (max-width: 900px) {
@@ -465,22 +463,12 @@ button {
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(700px 500px at 82% 12%, rgba(52, 211, 153, 0.12), transparent 60%),
-    radial-gradient(600px 500px at 8% 88%, rgba(143, 179, 74, 0.1), transparent 60%);
-  pointer-events: none;
-}
-
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(143, 179, 74, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143, 179, 74, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(640px 480px at 70% 20%, black, transparent 75%);
   pointer-events: none;
@@ -502,11 +490,11 @@ button {
   padding: 8px 18px;
   border-radius: var(--r-pill);
   border: 1px solid var(--border-strong);
-  background: rgba(52, 211, 153, 0.06);
+  background: rgba(255, 255, 255, 0.03);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--muted);
   margin-bottom: 26px;
 }
 
@@ -581,15 +569,14 @@ button {
   border-radius: var(--r-lg);
   overflow: hidden;
   border: 1px solid var(--border-strong);
-  background: linear-gradient(140deg, var(--surface-3), var(--surface));
+  background: var(--surface-2);
   display: grid;
   place-items: center;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--text);
   font-size: 1.1rem;
-  box-shadow: var(--shadow-1);
 }
 
 .hero__meta-text small {
@@ -618,24 +605,27 @@ button {
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
   padding: 24px;
-  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface);
   box-shadow: var(--shadow-2);
-  transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+  transition: transform var(--speed) var(--ease), border-color var(--speed) var(--ease);
 }
 
 .hero__bento-card:hover {
   transform: translateY(-4px);
+  border-color: var(--border-strong);
 }
 
 .hero__bento-card--main {
   grid-column: 1 / -1;
-  background:
-    radial-gradient(320px 200px at 90% 0%, rgba(52, 211, 153, 0.16), transparent 65%),
-    linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface-2);
 }
 
 .hero__bento-card--offset {
   transform: translateY(28px);
+}
+
+.hero__bento-card--offset:hover {
+  transform: translateY(24px);
 }
 
 .hero__bento-label {
@@ -671,7 +661,7 @@ button {
   font-weight: 800;
   line-height: 1;
   display: block;
-  color: var(--accent);
+  color: var(--text);
 }
 
 .hero__bento-stat span {
@@ -728,6 +718,11 @@ button {
   margin-top: 16px;
 }
 
+.about__copy strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .about__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -737,7 +732,7 @@ button {
 .about__stat {
   padding: 22px 18px;
   border-radius: var(--r-md);
-  background: linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface);
   border: 1px solid var(--border);
   text-align: center;
   transition: transform var(--speed) var(--ease), border-color var(--speed) var(--ease);
@@ -754,7 +749,7 @@ button {
   font-size: 2rem;
   font-weight: 800;
   line-height: 1;
-  color: var(--accent);
+  color: var(--text);
   margin-bottom: 8px;
 }
 
@@ -771,9 +766,7 @@ button {
   padding: 40px;
   border-radius: var(--r-lg);
   border: 1px solid var(--border);
-  background:
-    radial-gradient(300px 220px at 90% 0%, rgba(143, 179, 74, 0.14), transparent 60%),
-    linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface);
   box-shadow: var(--shadow-2);
 }
 
@@ -804,9 +797,9 @@ button {
   border-radius: 14px;
   display: grid;
   place-items: center;
-  background: rgba(52, 211, 153, 0.1);
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid var(--border);
+  color: var(--accent-2);
 }
 
 .about__pillar-icon svg {
@@ -859,7 +852,7 @@ button {
   margin-bottom: 0;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
-  background: linear-gradient(140deg, var(--surface-3), var(--surface));
+  background: var(--surface-3);
 }
 
 .projects__media img {
@@ -867,18 +860,18 @@ button {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease), filter 0.4s var(--ease);
-  filter: saturate(0.85) contrast(1.02);
+  filter: saturate(0.7) contrast(1.02);
 }
 
 .projects__card:hover .projects__media img {
-  transform: scale(1.06);
-  filter: saturate(1) contrast(1.04);
+  transform: scale(1.05);
+  filter: saturate(0.95) contrast(1.04);
 }
 
 .projects__media .backdrop {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 35%, rgba(8, 16, 12, 0.85));
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 11, 0.85));
 }
 
 .projects__media-tag {
@@ -908,6 +901,14 @@ button {
   color: var(--accent);
 }
 
+.projects__sub {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .projects__desc {
   color: var(--muted);
   font-size: 0.95rem;
@@ -932,7 +933,7 @@ button {
   flex: none;
   width: 17px;
   height: 17px;
-  color: var(--accent);
+  color: var(--accent-2);
   margin-top: 4px;
 }
 
@@ -984,7 +985,7 @@ button {
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--border));
+  background: var(--border-strong);
 }
 
 .timeline__item {
@@ -1004,8 +1005,8 @@ button {
   height: 22px;
   border-radius: 50%;
   background: var(--bg);
-  border: 5px solid var(--accent);
-  box-shadow: 0 0 0 5px rgba(52, 211, 153, 0.14), 0 0 26px rgba(52, 211, 153, 0.35);
+  border: 5px solid var(--accent-2);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.14);
 }
 
 .timeline__card {
@@ -1068,8 +1069,7 @@ button {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent-2);
-  opacity: 0.6;
+  background: var(--dim);
 }
 
 /* ---------- Skills (bento) ---------- */
@@ -1081,20 +1081,7 @@ button {
 }
 
 .skills__card {
-  grid-column: span 5;
   padding: 34px 34px 38px;
-}
-
-.skills__card--wide {
-  grid-column: span 7;
-}
-
-.skills__card--tall {
-  grid-column: span 7;
-}
-
-.skills__card--panel {
-  grid-column: span 5;
 }
 
 .skills__title {
@@ -1123,7 +1110,7 @@ button {
   padding: 10px 18px;
   border-radius: var(--r-md);
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.03);
   font-size: 0.9rem;
   color: var(--muted);
   transition: all var(--speed) var(--ease);
@@ -1132,8 +1119,8 @@ button {
 .skills__item:hover {
   color: var(--text);
   border-color: var(--border-strong);
-  background: rgba(52, 211, 153, 0.08);
-  transform: translateY(-3px) scale(1.02);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-3px);
 }
 
 .skills__i18n {
@@ -1157,14 +1144,14 @@ button {
 .skills__i18n-row span {
   font-family: var(--font-mono);
   font-size: 0.76rem;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 .skills__bar {
   position: relative;
   height: 7px;
   border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.07);
   overflow: hidden;
   margin-top: 8px;
 }
@@ -1174,7 +1161,7 @@ button {
   position: absolute;
   inset: 0;
   transform-origin: left;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: var(--accent-2);
   border-radius: inherit;
   animation: grow 1.2s var(--ease) forwards;
   transform: scaleX(0);
@@ -1206,7 +1193,7 @@ button {
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: rgba(143, 179, 74, 0.1);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
   color: var(--accent-2);
 }
@@ -1238,11 +1225,8 @@ button {
 }
 
 @media (max-width: 900px) {
-  .skills__card,
-  .skills__card--wide,
-  .skills__card--tall,
-  .skills__card--panel {
-    grid-column: 1 / -1;
+  .skills__card {
+    grid-column: 1 / -1 !important;
   }
 }
 
@@ -1262,9 +1246,7 @@ button {
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  background:
-    radial-gradient(420px 260px at 92% 8%, rgba(52, 211, 153, 0.18), transparent 60%),
-    linear-gradient(160deg, var(--surface-2), var(--surface));
+  background: var(--surface-2);
 }
 
 .contact__main h2 {
@@ -1309,9 +1291,9 @@ button {
   border-radius: 16px;
   display: grid;
   place-items: center;
-  background: rgba(52, 211, 153, 0.1);
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid var(--border);
+  color: var(--accent-2);
 }
 
 .contact__rail-icon svg {
@@ -1344,7 +1326,7 @@ button {
 .footer {
   border-top: 1px solid var(--border);
   padding: 40px 0;
-  background: #060b08;
+  background: #060607;
 }
 
 .footer__inner {
@@ -1359,7 +1341,7 @@ button {
 }
 
 .footer a:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .footer__brand {

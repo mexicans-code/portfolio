@@ -93,7 +93,7 @@ export default function Hero() {
             <p className="hero__bento-label">Proyecto</p>
             <p className="hero__bento-title">{PROJECTS[1].name}</p>
             <p className="hero__bento-line">{PROJECTS[1].role}</p>
-            <a href={PROJECTS[1].href} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.85rem', marginTop: 12 }}>
+            <a href={PROJECTS[1].href} target="_blank" rel="noreferrer" style={{ color: 'var(--accent-2)', display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: '0.85rem', marginTop: 12 }}>
               Ver <ChevronRight size={14} />
             </a>
           </div>
